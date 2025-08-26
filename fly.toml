@@ -1,5 +1,8 @@
 app = "n8n-render-cold-sky-5818"
 
+[build]
+  image = "n8nio/n8n:latest"
+
 [env]
   N8N_BASIC_AUTH_ACTIVE = "false"
   N8N_HOST = "0.0.0.0"
