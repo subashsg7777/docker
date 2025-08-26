@@ -1,0 +1,16 @@
+app = "n8n-render-cold-sky-5818"
+
+[env]
+  N8N_BASIC_AUTH_ACTIVE = "false"
+  N8N_HOST = "0.0.0.0"
+  N8N_PORT = "5678"
+  N8N_PROTOCOL = "http"
+  NODE_ENV = "production"
+
+[[services]]
+  internal_port = 5678
+  protocol = "tcp"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
