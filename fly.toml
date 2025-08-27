@@ -1,32 +1,40 @@
-app = "n8n-render-holy-bird-5929"
-primary_region = "sin"  # Use 'sin' (Singapore) since 'bom' has no volume capacity
+app = 'n8n-render-holy-bird-5929'
+primary_region = 'sin'
 
 [build]
-  image = "n8nio/n8n:latest"
+  image = 'n8nio/n8n:latest'
 
 [env]
-  N8N_HOST = "0.0.0.0"
-  N8N_PORT = "5678"
-  N8N_PROTOCOL = "http"
-  N8N_USER_FOLDER = "/home/node/.n8n"
-  N8N_BASIC_AUTH_ACTIVE = "true"
-  N8N_BASIC_AUTH_USER = "yourUsername"
-  N8N_BASIC_AUTH_PASSWORD = "yourPassword"
-  TZ = "Asia/Kolkata"
-  NODE_ENV = "production"
+  N8N_BASIC_AUTH_ACTIVE = 'true'
+  N8N_BASIC_AUTH_PASSWORD = '!Ssalssal7777'
+  N8N_BASIC_AUTH_USER = 'subashsg7777@gmail.com'
+  N8N_HOST = '0.0.0.0'
+  N8N_PORT = '5678'
+  N8N_PROTOCOL = 'http'
+  N8N_USER_FOLDER = '/home/node/.n8n'
+  NODE_ENV = 'production'
+  TZ = 'Asia/Kolkata'
 
-[mounts]
-  source = "n8n_data"
-  destination = "/home/node/.n8n"
+  # ✅ This is the key fix for OAuth redirect
+  WEBHOOK_TUNNEL_URL = 'https://n8n-render-holy-bird-5929.fly.dev'
+
+[[mounts]]
+  source = 'n8n_data'
+  destination = '/home/node/.n8n'
 
 [[services]]
+  protocol = 'tcp'
   internal_port = 5678
-  protocol = "tcp"
 
   [[services.ports]]
-    handlers = ["http"]
     port = 80
+    handlers = ['http']
 
   [[services.ports]]
-    handlers = ["tls", "http"]
     port = 443
+    handlers = ['tls', 'http']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
