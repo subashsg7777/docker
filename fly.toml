@@ -15,8 +15,11 @@ primary_region = 'sin'
   NODE_ENV = 'production'
   TZ = 'Asia/Kolkata'
 
-  # ✅ This is the key fix for OAuth redirect
+  # ✅ Add these three
   WEBHOOK_TUNNEL_URL = 'https://n8n-render-holy-bird-5929.fly.dev'
+  WEBHOOK_URL = 'https://n8n-render-holy-bird-5929.fly.dev'
+  VUE_APP_URL = 'https://n8n-render-holy-bird-5929.fly.dev'
+
 
 [[mounts]]
   source = 'n8n_data'
